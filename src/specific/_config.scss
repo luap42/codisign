@@ -62,6 +62,10 @@ $diff-added-background-color: lighten(map-get($secondary-colors, "green"), 45%) 
 $diff-removed-background-color: lighten(map-get($secondary-colors, "red"), 30%) !default;
 $diff-changed-background-color: lighten($tertiary-color, 42.5%) !default;
 
+$diff-old-changed-dark: #fcc8c8;
+$diff-new-changed-dark: #dafce8;
+$diff-inline-changed-dark: #eaf7fd;
+
 /* ToC */
 $toc-header-font-weight: 500;
 $toc-header-top-margin: 2;
@@ -86,6 +90,11 @@ $toc-badge-padding: 0.5;
 $toc-full-padding-y: 0;
 $toc-full-padding-x: 2;
 
+$toc-header-button-dark-background-hover: rgb(30, 30, 30);
+$toc-entry-hover-dark-background-color: #deeef3;
+$toc-header-dark-color: #cedfe7;
+$toc-header-button-dark-background: #ccdee7;
+
 /* Meters */
 $meter-height: 0.75rem !default;
 $meter-max-width: 20rem !default;
@@ -102,6 +111,12 @@ $meter-question-score-outer-color: lighten($tertiary-color, 35%);
 $meter-question-score-dash-color: darken($tertiary-color, 30%);
 $meter-question-score-negative-color: lighten(map-get($secondary-colors, "red"), 5%);
 $meter-question-score-positive-color: darken(map-get($secondary-colors, "green"), 10%);
+
+$meter-question-score-outer-dark-color: #141c1c;
+$meter-question-score-before-dark-background: #344147;
+$meter-progress-dark-border: #001fb8;
+$meter-progress-dark-color: #011583;
+$meter-progress-meter--bar-dark-background: #cbd3ff;
 
 /* Tools */
 $tools-padding-y: 2;
@@ -133,3 +148,30 @@ $tools-item-danger-filled-hover-background-color: darken(map-get($secondary-colo
 $tools-item-danger-filled-active-background-color: darken(map-get($secondary-colors, "red"), 30%);
 $tools-item-danger-filled-active-color: white;
 $tools-item-danger-filled-active-inner-shadow: 0 2px 4px -2px darken(map-get($secondary-colors, "red"), 45%);
+
+$tools-item-dark-color: #aec8d4;
+$tools-item-focus-dark-background: #dfe5e8;
+$tools-item-dark-text-color: #3f4e56;
+$tools-item-active-dark-box-shadow: 0 2px 4px -2px #6a8491;
+$tools-item-danger-dark-white-color: #fff;
+$tools-item-danger-dark-text-color: #6a8491;
+$tools-item-danger-focus-dark-background: #d61919;
+$tools-item-danger-hover-dark-background: #e62b2b;
+$tools-item-danger-active-dark-background: #bb1616;
+$tools-item-danger-active-dark-box-shadow: 0 2px 4px -2px #4d0707;
+$tools-item-danger-filled-dark-background: #dd4e4e;
+$tools-item-danger-filled-dark-focus-background: #be1515;
+$tools-item-danger-filled-dark-hover-background: #b61212;
+$tools-item-danger-filled-dark-active-background: #880f0f;
+
+@mixin theme-switch-val($light-val, $dark-val){
+  @media (prefers-color-scheme: light){
+    @content($light-val);
+  }
+  @media (prefers-color-scheme: dark){
+    @content($dark-val);
+  }
+  :root.theme-dark {
+    @content($dark-val);
+  }
+}

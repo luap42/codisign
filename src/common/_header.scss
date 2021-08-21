@@ -3,8 +3,12 @@
   margin-bottom: $margin-unit * $header-bottom-margin;
   font-family: $font-stack-brand;
 
-  background: $header-background;
-  color: $header-color;
+  @include theme-switch-val($header-color,$header-background-color-dark) using ($val){
+    background: $val;
+  }
+  @include theme-switch-val($header-color,$header-color-dark) using ($val){
+    color: $val;
+  }
   box-shadow: $header-shadow;
 
   font-weight: $header-font-weight;
@@ -18,7 +22,9 @@
 
     &:hover, &:active {
       color: inherit;
-      box-shadow: $header-link-hover-shadow;
+      @include theme-switch-val($header-link-hover-shadow,$header-link-hover-shadow-dark) using ($val){
+        box-shadow: $val;
+      }
       text-decoration: none;
     }
   }
@@ -63,8 +69,12 @@
       margin: $header-item-margin-y*$margin-unit $header-item-margin-x*$margin-unit;
       cursor: pointer;
       font: inherit;
-      color: $header-item-color;
-      background-color: $header-item-background-color;
+      @include theme-switch-val($header-item-color,$header-color-dark) using ($val){
+        color: $val;
+      }
+      @include theme-switch-val($header-item-background-color,$header-item-background-color-dark) using ($val){
+        background-color: $val;
+      }
       border: none;
       display: flex;
       align-items: center;
@@ -73,15 +83,23 @@
       text-decoration: none !important;
 
       &:hover, &.is-active {
-        color: $header-item-active-color;
-        background-color: $header-item-active-background-color;
+        @include theme-switch-val($header-item-active-color,$header-color-dark) using ($val){
+          color: $val;
+        }
+        @include theme-switch-val($header-item-active-background-color,$header-item-active-background-color-dark) using ($val){
+          background-color: $val;
+        }
       }
 
       &.is-mobile-menu { display: none; }
 
       .header--alert {
-        background-color: $header-alert-background-color;
-        color: $header-alert-color;
+        @include theme-switch-val($header-alert-background-color,$header-alert-background-color-dark) using ($val){
+          background-color: $val; 
+        }
+        @include theme-switch-val($header-alert-color,$header-alert-color-dark) using ($val){
+          color: $val; 
+        }
         font-size: $header-alert-font-size;
         min-width: 1.5em;
         height: 1.5em;
@@ -143,7 +161,6 @@
     }
   }
 }
-
 
 @media all and (max-width: $header-breakpoint) {
   .header {

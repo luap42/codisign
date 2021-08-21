@@ -1,6 +1,10 @@
 html {
     min-height: 100vh;
 }
+body {
+    background-color: rgb(30,30,30);
+    color: white;
+}
 .home {
     height: 100%;
 }

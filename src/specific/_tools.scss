@@ -5,12 +5,16 @@
     flex-wrap: wrap;
 
     .tools--item {
-        background-color: $tools-item-background-color;
+        @include theme-switch-val($tools-item-background-color,inherit) using ($val){
+            background-color: $val;
+        }
         font: inherit;
         font-size: $tools-item-font-size;
         font-weight: $tools-item-font-weight;
         border: none;
-        color: $tools-item-color;
+        @include theme-switch-val($tools-item-color,$tools-item-dark-color) using ($val){
+            color: $val;
+        }
         padding: $tools-item-padding-y*$padding-unit $tools-item-padding-x*$padding-unit;
         margin: $tools-item-margin-y*$margin-unit $tools-item-margin-x*$margin-unit;
         cursor: pointer;
@@ -22,64 +26,110 @@
         transition: $default-transition;
 
         &:focus {
-            background-color: $tools-item-active-background-color;
+            @include theme-switch-val($tools-item-active-background-color,$tools-item-focus-dark-background) using ($val){
+                background-color: $val;
+            }
             text-decoration: none;
         }
 
         &:hover {
-            background-color: $tools-item-active-background-color;
-            color: $tools-item-active-color;
+            @include theme-switch-val($tools-item-active-background-color,$tools-item-focus-dark-background) using ($val){
+                background-color: $val;
+            }
+            @include theme-switch-val($tools-item-active-color,$tools-item-dark-text-color) using ($val){
+                color: $val;
+            }
             text-decoration: none;
         }
 
         &:active,
         &.is-active {
-            background-color: $tools-item-active-background-color;
-            color: $tools-item-active-color;
-            box-shadow: $tools-item-active-inner-shadow inset;
+            @include theme-switch-val($tools-item-active-background-color,$tools-item-focus-dark-background) using ($val){
+                background-color: $val;
+            }
+            @include theme-switch-val($tools-item-active-color,$tools-item-dark-text-color) using ($val){
+                color: $val;
+            }
+            @include theme-switch-val($tools-item-active-inner-shadow,$tools-item-active-dark-box-shadow) using ($val){
+                box-shadow: $val inset;
+            }
             text-decoration: none;
         }
 
         &.is-danger {
-            background-color: $tools-item-danger-background-color;
-            color: $tools-item-danger-color;
+            @include theme-switch-val($tools-item-danger-background-color,transparent) using ($val){
+                background-color: $val;
+            }
+            @include theme-switch-val($tools-item-danger-color,$tools-item-danger-dark-text-color) using ($val){
+                color: $val;
+            }
 
             &:focus {
-                color: $tools-item-danger-active-color;
-                background-color: $tools-item-danger-hover-background-color;
+                @include theme-switch-val($tools-item-danger-active-color,$tools-item-danger-dark-white-color) using ($val){
+                    color: $val;
+                }
+                @include theme-switch-val($tools-item-danger-hover-background-color,$tools-item-danger-focus-dark-background) using ($val){
+                    background-color: $val;
+                }
             }
 
             &:hover {
-                color: $tools-item-danger-active-color;
-                background-color: $tools-item-danger-hover-background-color;
+                @include theme-switch-val($tools-item-danger-active-color,$tools-item-danger-dark-white-color) using ($val){
+                    color: $val;
+                }
+                @include theme-switch-val($tools-item-danger-hover-background-color,$tools-item-danger-hover-dark-background) using ($val){
+                    background-color: $val;
+                }
             }
 
             &:active,
             &.is-active {
-                color: $tools-item-danger-active-color;
-                background-color: $tools-item-danger-active-background-color;
-                box-shadow: $tools-item-danger-active-inner-shadow inset;
+                @include theme-switch-val($tools-item-danger-active-color,$tools-item-danger-dark-white-color) using ($val){
+                    color: $val;
+                }
+                @include theme-switch-val($tools-item-danger-active-background-color,$tools-item-danger-active-dark-background) using ($val){
+                    background-color: $val;
+                }
+                @include theme-switch-val($tools-item-danger-active-inner-shadow, $tools-item-danger-active-dark-box-shadow) using ($val){
+                    box-shadow: $val inset;
+                }
             }
         }
 
         &.is-danger.is-filled {
-            color: $tools-item-danger-filled-color;
-            background-color: $tools-item-danger-filled-background-color;
+            @include theme-switch-val($tools-item-danger-filled-color,$tools-item-danger-dark-white-color) using ($val){
+                color: $val;
+            }
+            @include theme-switch-val($tools-item-danger-filled-background-color,$tools-item-danger-filled-dark-background) using ($val){
+                background-color: $val;
+            }
 
             &:focus {
-                color: $tools-item-danger-filled-active-color;
-                background-color: $tools-item-danger-filled-hover-background-color;
+                @include theme-switch-val($tools-item-danger-filled-active-color,$tools-item-danger-dark-white-color) using ($val){
+                    color: $val;
+                }
+                @include theme-switch-val($tools-item-danger-filled-hover-background-color,$tools-item-danger-filled-dark-focus-background) using ($val){
+                    background-color: $val;
+                }
             }
 
             &:hover {
-                color: $tools-item-danger-filled-active-color;
-                background-color: $tools-item-danger-filled-hover-background-color;
+                @include theme-switch-val($tools-item-danger-filled-active-color,$tools-item-danger-dark-white-color) using ($val){
+                    color: $val;
+                }
+                @include theme-switch-val($tools-item-danger-filled-hover-background-color,$tools-item-danger-filled-dark-hover-background) using ($val){
+                    background-color: $val;
+                }
             }
 
             &:active,
             &.is-active {
-                color: $tools-item-danger-filled-active-color;
-                background-color: $tools-item-danger-filled-active-background-color;
+                @include theme-switch-val($tools-item-danger-filled-active-color,$tools-item-danger-dark-white-color) using ($val){
+                    color: $val;
+                }
+                @include theme-switch-val($tools-item-danger-filled-active-background-color,$tools-item-danger-filled-dark-active-background) using ($val){
+                    background-color: $val;
+                }
                 box-shadow:  inset;
             }
         }

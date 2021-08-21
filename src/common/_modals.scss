@@ -13,7 +13,9 @@
   &.is-active { display: block; }
 
   &.is-with-backdrop {
-    background-color: $modal-backdrop-background;
+    @include theme-switch-val($modal-backdrop-background,$modal-backdrop-background-dark) using ($val){
+      background-color: $val;
+    }
     position: fixed;
 
     height: 100%;
@@ -33,9 +35,15 @@
 
     pointer-events: all;
 
-    background-color: $modal-background-color;
-    box-shadow: $modal-shadow;
-    border: $modal-border-width solid $modal-border-color;
+    @include theme-switch-val($modal-background-color,$modal-background-color-dark) using ($val){
+      background-color: $val; 
+    }
+    @include theme-switch-val($modal-shadow,$modal-shadow-dark) using ($val){
+      box-shadow: $modal-shadow;
+    }
+    @include theme-switch-val($modal-border-color,$modal-border-color-dark) using ($val){
+      border: $modal-border-width solid $val;
+    }
 
     display: flex;
     flex-direction: column;
@@ -44,7 +52,9 @@
     .modal--header {
       padding: $modal-header-padding * $padding-unit;
       font-size: $modal-header-font-size;
-      border-bottom: $modal-border-width solid $modal-inner-border-color;
+      @include theme-switch-val($modal-inner-border-color,$modal-background-color-dark) using ($val){
+        border-bottom: $modal-border-width solid $val;
+      }
       font-weight: $modal-header-font-weight;
 
       .modal--header-link {
@@ -92,12 +102,18 @@
     .modal--header,
     .modal--container,
     .modal--footer {
-      border-color: $modal-danger-border-color;
+      @include theme-switch-val($modal-danger-border-color,$modal-danger-border-color-dark) using ($val){
+        border-color: $val;
+      }
     }
 
     .modal--header {
-      color: $modal-danger-header-color;
-      background-color: $modal-danger-background-color;
+      @include theme-switch-val($modal-danger-header-color,$modal-danger-header-color-dark) using ($val){
+        color: $val;
+      }
+      @include theme-switch-val($modal-danger-background-color,$modal-danger-background-color-dark) using ($val){
+        background-color: $val;
+      }
     }
   }
 }

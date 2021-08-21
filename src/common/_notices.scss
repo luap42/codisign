@@ -2,13 +2,19 @@
   margin: $notice-margin-y*$margin-unit $notice-margin-x*$margin-unit;
   padding: $notice-padding * $padding-unit;
   border-radius: $notice-border-radius;
-  border: $notice-border-width solid $notice-default-border-color;
-  background-color: $notice-default-background-color;
+  @include theme-switch-val($notice-default-background-color,$notice-default-background-color-dark) using ($val){
+    border: $notice-border-width solid $val;
+  }
+  @include theme-switch-val($notice-default-background-color,$notice-default-background-color-dark) using ($val){
+    background-color: $val;
+  }
 
   &.is-filled {
     border-color: transparent;
     color: white;
-    background-color: $notice-default-filled-background-color;
+    @include theme-switch-val($notice-default-filled-background-color,$notice-default-filled-background-color-dark) using ($val){
+      background-color: $val;
+    }
   }
 
   @each $name, $color in (

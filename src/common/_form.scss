@@ -9,11 +9,15 @@ label.form-element {
 
   font-size: $label-font-size;
   font-weight: $label-font-weight;
-  color: $label-color;
+  @include theme-switch-val($label-color,white) using ($val){
+    color: $val;
+  }
 }
 
 .form-caption {
-  color: $form-caption-color;
+  @include theme-switch-val($form-caption-color,white) using ($val){
+    color: $val;
+  }
   font-size: $form-caption-font-size;
   margin-top: $form-caption-margin-top*$margin-unit;
   margin-bottom: $form-caption-margin-bottom*$margin-unit;
@@ -25,21 +29,33 @@ input.form-element {
 
   padding: $input-padding*$padding-unit;
   margin: $input-margin-y*$margin-unit $input-margin-x*$margin-unit;
-
-  border: $input-border-width solid $input-border-color;
-  background-color: $input-background-color;
+  @media (prefers-color-scheme: dark){
+    color: white;
+  }
+  @include theme-switch-val($input-border-color,$input-border-color-dark) using ($val){
+    border: $input-border-width solid $val;
+  }
+  @include theme-switch-val($input-background-color,$input-background-color-dark) using ($val){
+    background-color: $val;
+  }
   border-radius: $input-border-radius;
 
   display: block;
   width: 100%;
 
   &:focus {
-    border-color: $input-active-border-color;
+    @include theme-switch-val($input-active-border-color,$input-active-border-color-dark) using ($val){
+      border-color: $val;
+    }
   }
 
   &.is-danger {
-    border-color: $input-danger-border-color;
-    background-color: $input-danger-background-color;
+    @include theme-switch-val($input-danger-border-color,$input-danger-border-color-dark) using ($val){
+      border-color: $val;
+    }
+    @include theme-switch-val($input-danger-background-color,$input-danger-background-color-dark) using ($val){
+      background-color: $val;
+    }
   }
 }
 
@@ -49,9 +65,15 @@ textarea.form-element {
 
   padding: $input-padding*$padding-unit;
   margin: $input-margin-y*$margin-unit $input-margin-x*$margin-unit;
-
-  border: $input-border-width solid $input-border-color;
-  background-color: $input-background-color;
+  @media (prefers-color-scheme: dark){
+    color: white;
+  }
+  @include theme-switch-val($input-border-color,$input-border-color-dark) using ($val){
+    border: $input-border-width solid $val;
+  }
+  @include theme-switch-val($input-background-color,$input-background-color-dark) using ($val){
+    background-color: $val;
+  }
   border-radius: $input-border-radius;
 
   resize: $textarea-resize;
@@ -61,12 +83,18 @@ textarea.form-element {
   min-height: $textarea-min-height;
 
   &:focus {
-    border-color: $input-active-border-color;
+    @include theme-switch-val($input-active-border-color,$input-active-border-color-dark) using ($val){
+      border-color: $val;
+    }
   }
 
   &.is-danger {
-    border-color: $input-danger-border-color;
-    background-color: $input-danger-background-color;
+    @include theme-switch-val($input-danger-border-color,$input-danger-border-color-dark) using ($val){
+      border-color: $val;
+    }
+    @include theme-switch-val($input-danger-background-color,$input-danger-background-color-dark) using ($val){
+      background-color: $val;
+    }
   }
 
   &.is-small { min-height: $textarea-small-min-height; }
@@ -90,9 +118,15 @@ select.form-element {
   margin: $input-margin-y*$margin-unit $input-margin-x*$margin-unit;
 
   cursor: pointer;
-
-  border: $input-border-width solid $input-border-color;
-  background-color: $input-background-color;
+  @media (prefers-color-scheme: dark){
+    color: white;
+  }
+  @include theme-switch-val($input-border-color,$input-border-color-dark) using ($val){
+    border: $input-border-width solid $val;
+  }
+  @include theme-switch-val($input-background-color,$input-background-color-dark) using ($val){
+    background-color: $val;
+  }
   border-radius: $input-border-radius;
 
   display: block;
@@ -103,12 +137,18 @@ select.form-element {
   }
 
   &:focus {
-    border-color: $input-active-border-color;
+    @include theme-switch-val($input-active-border-color,$input-active-border-color-dark) using ($val){
+      border-color: $val;
+    }
   }
 
   &.is-danger {
-    border-color: $input-danger-border-color;
-    background-color: $input-danger-background-color;
+    @include theme-switch-val($input-danger-border-color,$input-danger-border-color-dark) using ($val){
+      border-color: $val;
+    }
+    @include theme-switch-val($input-danger-background-color,$input-danger-background-color-dark) using ($val){
+      background-color: $val;
+    }
   }
 }
 
@@ -120,9 +160,15 @@ select.form-element[multiple] {
   margin: $input-margin-y*$margin-unit $input-margin-x*$margin-unit;
 
   cursor: inherit;
-
-  border: $input-border-width solid $input-border-color;
-  background-color: $input-background-color;
+  @media (prefers-color-scheme: dark){
+    color: white;
+  }
+  @include theme-switch-val($input-border-color,$input-border-color-dark) using ($val){
+    border: $input-border-width solid $val;
+  }
+  @include theme-switch-val($input-background-color,$input-background-color-dark) using ($val){
+    background-color: $val;
+  }
   border-radius: $input-border-radius;
 
   display: block;
@@ -136,11 +182,17 @@ select.form-element[multiple] {
   }
 
   &:focus {
-    border-color: $input-active-border-color;
+    @include theme-switch-val($input-active-border-color,$input-active-border-color-dark) using ($val){
+      border-color: $val;
+    }
   }
 
   &.is-danger {
-    border-color: $input-danger-border-color;
-    background-color: $input-danger-background-color;
+    @include theme-switch-val($input-danger-border-color,$input-danger-border-color-dark) using ($val){
+      border-color: $val;
+    }
+    @include theme-switch-val($input-danger-background-color,$input-danger-background-color-dark) using ($val){
+      background-color: $val;
+    }
   }
 }

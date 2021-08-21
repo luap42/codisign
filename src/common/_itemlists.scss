@@ -1,17 +1,19 @@
 .item-list {
   display: flex;
   flex-direction: column;
-
   align-items: stretch;
-
 
   .item-list--item {
     display: flex;
     align-items: center;
-    border-bottom: $item-list-separator-width solid $item-list-separator-color;
+    @include theme-switch-val($item-list-separator-color,$item-list-separator-color-dark) using ($val){
+      border-bottom: $item-list-separator-width solid $val;
+    }
 
     &.is-highlighted {
-      background-color: $item-list-highlight;
+      @include theme-switch-val($item-list-highlight,$item-list-highlight-dark) using ($val){
+        background-color: $val;
+      }
     }
 
     .item-list--number-value {
@@ -28,12 +30,16 @@
 
       .item-list--number {
         font-size: $item-list-number-font-size;
-        color: $item-list-number-font-color;
+        @include theme-switch-val($item-list-number-font-color,$item-list-number-font-color-dark) using ($val){
+          color: $val;
+        }
       }
 
       .item-list--number-label {
         font-size: $item-list-number-label-font-size;
-        color: $item-list-number-label-color;
+        @include theme-switch-val($item-list-number-label-color,$item-list-number-font-color-dark) using ($val){
+          color: $val;
+        }
       }
     }
 

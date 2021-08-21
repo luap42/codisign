@@ -9,17 +9,31 @@ ul.pagination {
         display: block;
         margin: $pagination-item-margin-y*$margin-unit $margin-unit*$pagination-item-margin-x;
         padding: 0;
-        border: $pagination-item-border-width solid $pagination-item-border-color;
-        background-color: $pagination-item-background-color;
-        box-shadow: $pagination-item-box-shadow;
+        @include theme-switch-val($pagination-item-border-color,$pagination-item-border-color-dark) using ($val){
+            border: $pagination-item-border-width solid $val;
+        }
+        @include theme-switch-val($pagination-item-background-color,$pagination-item-background-color-dark) using ($val){
+            background-color: $val;
+        }
+        @include theme-switch-val($pagination-item-box-shadow,$pagination-item-box-shadow-dark) using ($val){
+            box-shadow: $val;
+        }
         border-radius: $pagination-item-border-radius;
         font-weight: $pagination-item-font-weight;
 
         &.is-active {
-            border-color: $pagination-item-active-border-color;
-            background-color: $pagination-item-active-background-color;
-            box-shadow: $pagination-item-active-box-shadow;
-            color: $pagination-item-active-color;
+            @include theme-switch-val($pagination-item-active-border-color,$pagination-item-active-border-color-dark) using ($val){
+                border-color: $val;
+            }
+            @include theme-switch-val($pagination-item-active-background-color,$pagination-item-active-background-color-dark) using ($val){
+                background-color: $val;
+            }
+            @include theme-switch-val($pagination-item-active-box-shadow,$pagination-item-active-box-shadow-dark) using ($val){
+                box-shadow: $val;
+            }
+            @include theme-switch-val($pagination-item-active-color,white) using ($val){
+                color: $val;
+            }
             font-weight: $pagination-item-active-font-weight;
 
             a:hover {
@@ -38,7 +52,9 @@ ul.pagination {
         }
 
         a:hover {
-            background-color: $pagination-item-hover-background-color;
+            @include theme-switch-val($pagination-item-hover-background-color,$pagination-item-hover-background-color-dark) using ($val){
+                background-color: $val;
+            }
             color: inherit;
         }
     }

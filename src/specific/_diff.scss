@@ -21,15 +21,21 @@
         }
 
         .diff-old.is-changed {
-            background-color: $diff-removed-background-color;
+            @include theme-switch-val($diff-removed-background-color,$diff-old-changed-dark) using ($val){
+                background-color: $val;
+            }
         }
 
         .diff-new.is-changed {
-            background-color: $diff-added-background-color;
+            @include theme-switch-val($diff-added-background-color,$diff-new-changed-dark) using ($val){
+                background-color: $val;
+            }
         }
 
         .diff-inline.is-changed {
-            background-color: $diff-changed-background-color;
+            @include theme-switch-val($diff-changed-background-color,$diff-inline-changed-dark) using ($val){
+                background-color: $val;
+            }
         }
     }
 

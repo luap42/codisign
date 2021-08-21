@@ -33,18 +33,26 @@
 
 .meter.is-progress {
     border-radius: $meter-progress-border-radius;
-    border: $meter-progress-border-width solid $meter-progress-border-color;
+    @include theme-switch-val($meter-progress-border-color,$meter-progress-dark-border) using ($val){
+        border: $meter-progress-border-width solid $val;
+    }
     height: 1.5rem;
-    color: $meter-progress-color;
+    @include theme-switch-val($meter-progress-color,$meter-progress-dark-color) using ($val){
+        color: $val;
+    }
 
     .meter--bar {
         border-radius: $meter-progress-border-radius;
-        background-color: $meter-progress-inner-color;
+        @include theme-switch-val($meter-progress-inner-color,$meter-progress-meter--bar-dark-background) using ($val){
+            background-color: $val;
+        }
     }
 }
 
 .meter.is-question-score {
-    background-color: $meter-question-score-outer-color;
+    @include theme-switch-val($meter-question-score-outer-color,$meter-question-score-outer-dark-color) using ($val){
+        background-color: $val;
+    }
     max-width: $meter-max-width;
     border-radius: $meter-question-score-border-radius;
 
@@ -57,7 +65,9 @@
         left: calc(50% - #{$meter-question-score-dash-width/2});
         right: calc(50% - #{$meter-question-score-dash-width/2});
         z-index: 1;
-        background-color: $meter-question-score-dash-color;
+        @include theme-switch-val($meter-question-score-dash-color,$meter-question-score-before-dark-background) using ($val){
+            background-color: $val;
+        }
     }
 
     .meter--bar {

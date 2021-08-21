@@ -27,6 +27,14 @@ $font-size-h4: map-get($font-size-gradient, base) !default;
 $font-size-h5: map-get($font-size-gradient, caption) !default;
 $font-size-h6: map-get($font-size-gradient, small) !default;
 
+$code-border-color-dark: #0c0b0b;
+$code-dark-background-color: #2c2a2a;
+$quote-background-color-dark: #141414;
+$quote-border-color-dark: #151515;
+$delta-ins-background-color-dark: #a8ebc4;
+$delta-del-background-color-dark: #f6b4b4;
+$table-border-color-dark: #0f0d0d;
+
 /* Animation */
 $default-transition: all .3s ease !default;
 
@@ -171,6 +179,22 @@ $badge-tl-color: white !default;
 $badge-tl-muted-background-color: lighten($tertiary-color, 30%) !default;
 $badge-tl-muted-color:darken($tertiary-color, 30%) !default;
 
+$badge-tag-color-dark: #001898;
+$badge-tag-background-color-dark: #e4e8ff;
+$badge-tag-master-background-color-dark: #001db1;
+$badge-a-tag-background-color-dark: #cbd3ff;
+$badge-award-color-dark: #3f4e56;
+$badge-award-background-color-dark: #eef1f2;
+$badge-award-border-color-dark: #dfe5e8;
+$badge-role-background-color-dark: #0025e4;
+$badge-role-color-dark: #fff;
+$badge-role-muted-background-color-dark: #d0d9dd;
+$badge-role-muted-color-dark: #344147;
+$badge-tl-background-color-dark: #0025e4;
+$badge-tl-color-dark: #fff;
+$badge-tl-muted-background-color-dark: #d0d9dd;
+$badge-tl-muted-color-dark: #344147;
+
 /* Buttons */
 $button-primary-color: $primary-color !default;
 $button-danger-color: map-get($secondary-colors, "red") !default;
@@ -241,6 +265,14 @@ $textarea-min-height: 8em !default;
 $textarea-small-min-height: 4em !default;
 $textarea-large-min-height: 16em !default;
 
+$label-color-dark: #fff;
+$form-caption-color-dark: #fff;
+$input-border-color-dark: #141212;
+$input-background-color-dark: #0c0b0b;
+$input-active-border-color-dark: #141212;
+$input-danger-border-color-dark: #f6b4b4;
+$input-danger-background-color-dark: #ba0b01;
+
 /* Modals */
 $modal-width: 48rem !default;
 $modal-large-width: 72em !default;
@@ -275,6 +307,15 @@ $modal-footer-padding: 3 !default;
 $modal-danger-border-color: lighten(map-get($secondary-colors, "red"), 15%) !default;
 $modal-danger-header-color: darken(map-get($secondary-colors, "red"), 25%) !default;
 $modal-danger-background-color: lighten(map-get($secondary-colors, "red"), 35%) !default;
+
+$modal-backdrop-background-dark: rgba(0,0,0,.5);
+$modal-background-color-dark: #0c0b0b;
+$modal-shadow-dark: 0 3px 5px -3px #141212;
+$modal-border-color-dark: #b3c0c7;
+$modal-danger-border-color-dark: #f28d9d;
+$modal-danger-header-color-dark: #4c0404;
+$modal-danger-background-color-dark: #141212;
+
 
 /* Header */
 $header-padding: 4 !default;
@@ -336,6 +377,14 @@ $header-bars-margin-y-raw: 0.166666667em !default; // raw; not in margin units!
 $header-bars-color: rgba(0, 0, 0, 0.65) !default;
 $header-bars-active-color: rgba(0, 0, 0, 0.85) !default;
 
+$header-background-color-dark: rgb(30, 30, 30);
+$header-color-dark: #fff;
+$header-link-hover-shadow-dark: 0 3px 2px 0 rgba(0,0,0,.1);
+$header-item-background-color-dark: transparent;
+$header-item-active-background-color-dark: transparent;
+$header-alert-background-color-dark: rgb(30, 30, 30);
+$header-alert-color-dark: #0025e4;
+
 /** header slide **/
 
 
@@ -391,6 +440,9 @@ $footer-color: #666666 !default;
 $footer-border-color: #dddddd !default;
 $footer-background-color: #f6f6f6 !default;
 
+$footer-border-color-dark: #0c0b0b;
+$footer-background-color-dark: #141212;
+
 /* Item lists */
 $item-list-separator-width: 1px !default;
 $item-list-separator-color: lighten($tertiary-color, 30%) !default;
@@ -429,6 +481,9 @@ $item-list-not-primary-small-margin-x: 1 !default;
 $item-list-not-primary-image-small-margin-y: 1 !default;
 $item-list-not-primary-image-small-margin-x: 0.5 !default;
 
+$item-list-separator-color-dark: #141212;
+$item-list-highlight-dark: #0c0b0b;
+$item-list-number-font-color-dark: #fff;
 
 /* Notices */
 $notice-margin-y: 1 !default;
@@ -440,6 +495,10 @@ $notice-border-radius: 3px !default;
 $notice-default-border-color: lighten($tertiary-color, 20%) !default;
 $notice-default-background-color: lighten($tertiary-color, 40%) !default;
 $notice-default-filled-background-color: darken($tertiary-color, 40%) !default;
+
+$notice-default-border-color-dark: #b3c0c7;
+$notice-default-background-color-dark: #eef1f2;
+$notice-default-filled-background-color-dark: #1e262a;
 
 
 /* Tabs */
@@ -458,6 +517,11 @@ $tabs-item-margin: 0.5 !default;
 
 $tabs-classic-border-width: 3px;
 $tabs-classic-border-color: darken($primary-color, 20%) !default;
+
+$tabs-classic-border-color-dark: #0025e4;
+$tabs-hover-color-dark: #001898;
+$tabs-hover-background-color-dark: #141212;
+$tabs-color-dark: #666;
 
 /* Menu */
 $menu-padding: 0 !default;
@@ -485,6 +549,12 @@ $menu-item-margin-y: 0.5 !default;
 $menu-item-margin-x: 0.5 !default;
 $menu-item-border-radius: 0.25em !default;
 
+$menu-active-background-color-dark: #0025e4;
+$menu-hover-background-color-dark: #0c0b0b;
+$menu-hover-color-dark: #001898;
+$menu-color-dark: #666;
+$menu-header-color-dark: #333;
+
 /* Widgets */
 $widget-shadow: 0 3px 5px -2px #eeeeee !default;
 $widget-margin-y: 2 !default;
@@ -510,6 +580,11 @@ $widget-footer-padding: 3 !default;
 $widget-border-color-lighten: 5% !default;
 $widget-background-color-lighten: 35% !default;
 $widget-background-color-hf-lighten: 32.5% !default;
+
+$widget-shadow-dark: 0 3px 5px -2px #6b6666;
+$widget-background-color-dark: #141212;
+$widget-border-color-dark: #6b6666;
+$widget-header-background-border-color-dark: #0c0b0b;
 
 /* Pagination */
 $pagination-margin-y: 1 !default;
@@ -537,12 +612,23 @@ $pagination-item-active-font-weight: 600 !default;
 
 $pagination-item-hover-box-shadow: none !default;
 
+$pagination-item-border-color-dark: #1e1b1c;
+$pagination-item-background-color-dark: #141212;
+$pagination-item-box-shadow-dark: 2px 3px 2px -1px #0c0b0b;
+$pagination-item-active-border-color-dark: #293338;
+$pagination-item-active-background-color-dark: rgb(8, 8, 8);
+$pagination-item-active-box-shadow-dark: 2px 3px 2px -2px #060707;
+$pagination-item-hover-background-color-dark: #070707;
+
 /* Bar */
 $bar-max-height: 35vh;
 $bar-background-color: lighten($tertiary-color, 42.5%);
 $bar-border-color: lighten($tertiary-color, 25%);
 $bar-border-width: 1px;
 $bar-padding: 5;
+
+$bar-background-color-dark: #0c0b0b;
+$bar-border-color-dark: #141212;
 
 /* Drop Panel */
 $drop-border-width: 1px;
@@ -564,3 +650,24 @@ $drop-menu-item-color: darken($tertiary-color, 30%);
 $drop-menu-item-hover-background-color: lighten($tertiary-color, 40%);
 $drop-menu-item-active-color: white;
 $drop-menu-item-active-background-color: darken($tertiary-color, 15%);
+
+$drop-border-color-dark: #0c0b0b;
+$drop-shadow-dark: 0 3px 5px -2px #0c0b0b;
+$drop-background-color-dark: #141212;
+$drop-menu-item-color-dark: #fff;
+$drop-menu-item-hover-color-dark: #ddd;
+$drop-menu-item-hover-background-color-dark: #0c0b0b;
+$drop-menu-item-active-background-color-dark: #141212;
+$drop-menu-item-active-color-dark: #fff;
+
+@mixin theme-switch-val($light-val, $dark-val){
+  @media (prefers-color-scheme: light){
+    @content($light-val);
+  }
+  @media (prefers-color-scheme: dark){
+    @content($dark-val);
+  }
+  :root.theme-dark {
+    @content($dark-val);
+  }
+}

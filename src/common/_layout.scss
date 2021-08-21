@@ -63,3 +63,10 @@ html, body {
 
   }
 }
+
+@media (prefers-color-scheme: dark){
+  body {
+    background-color: rgb(30,30,30);
+    color: white;
+  }
+}

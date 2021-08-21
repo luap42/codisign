@@ -1,6 +1,8 @@
 .footer {
   padding: $footer-padding * $padding-unit;
-  border-top: $footer-top-border-width solid $footer-border-color;
+  @include theme-switch-val($footer-border-color,$footer-border-color-dark) using ($val){
+    border-top: $footer-top-border-width solid $val;
+  }
   color: $footer-color;
   font-family: $font-stack-brand;
 
@@ -8,6 +10,8 @@
 
   &.is-inverted {
     border-top: none;
-    background-color: $footer-background-color;
+    @include theme-switch-val($footer-background-color,$footer-background-color-dark) using ($val){
+      background-color: $val;
+    }
   }
 }

@@ -1,15 +1,23 @@
 .widget {
-  border: $widget-border-width solid $widget-border-color;
+  @include theme-switch-val($widget-border-color,$widget-border-color-dark) using ($val){
+    border: $widget-border-width solid $val;
+  }
   border-radius: $widet-border-radius;
-  box-shadow: $widget-shadow;
+  @include theme-switch-val($widget-shadow,$widget-shadow-dark) using ($val){
+    box-shadow: $val;
+  }
   margin: $widget-margin-y*$margin-unit $widget-margin-x*$margin-unit;
-  background-color: $widget-background-color;
+  @include theme-switch-val($widget-background-color,$widget-background-color-dark) using ($val){
+    background-color: $val;
+  }
 
   .widget--header {
     padding: $widget-header-padding * $padding-unit;
     font-size: $widget-header-font-size;
     font-weight: $widget-header-font-weight;
-    border-bottom: $widget-border-width solid $widget-border-color;
+    @include theme-switch-val($widget-border-color,$widget-border-color-dark) using ($val){
+      border-bottom: $widget-border-width solid $val;
+    }
 
     &.is-complex {
       font-size: 1em;
@@ -50,21 +58,35 @@
   "tertiary": lighten($tertiary-color, 7.5%)
 ) {
   .widget.is-#{$name} {
-    border-color: lighten($color, $widget-border-color-lighten);
-    background-color: lighten($color, $widget-background-color-lighten);
+    @include theme-switch-val(lighten($color, $widget-border-color-lighten),darken($color, $widget-border-color-lighten)) using ($val){
+      border-color: $val;
+    }
+    @include theme-switch-val(lighten($color, $widget-background-color-lighten),darken($color, $widget-background-color-lighten)) using ($val){
+      background-color: $val;
+    }
 
     .widget--header {
-      background-color: lighten($color, $widget-background-color-hf-lighten);
-      border-color: lighten($color, $widget-border-color-lighten);
+      @include theme-switch-val(lighten($color, $widget-background-color-hf-lighten),$widget-header-background-border-color-dark) using ($val){
+        background-color: $val;
+      }
+      @include theme-switch-val(lighten($color, $widget-border-color-lighten),$widget-background-color-dark) using ($val){
+        border-color: $val;
+      }
     }
 
     .widget--body + .widget--body {
-        border-color: lighten($color, $widget-border-color-lighten);
+      @include theme-switch-val(lighten($color, $widget-border-color-lighten),$widget-header-background-border-color-dark) using ($val){
+        border-color: $val;
+      }
     }
 
     .widget--footer {
-      background-color: lighten($color, $widget-background-color-hf-lighten);
-      border-color: lighten($color, $widget-border-color-lighten);
+      @include theme-switch-val(lighten($color, $widget-background-color-hf-lighten),$widget-header-background-border-color-dark) using ($val){
+        background-color: $val;
+      }
+      @include theme-switch-val(lighten($color, $widget-border-color-lighten), darken($color, $widget-border-color-lighten)) using ($val){
+        border-color:$val;
+      }
     }
   }
 }

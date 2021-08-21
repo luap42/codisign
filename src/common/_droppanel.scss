@@ -1,5 +1,7 @@
 .droppanel {
-    border: $drop-border-width solid $drop-border-color;
+    @include theme-switch-val($drop-border-color,$drop-border-color-dark) using ($val){
+        border: $drop-border-width solid $val;
+    }
     padding: $drop-padding * $padding-unit;
     border-radius: $drop-border-radius;
     max-width: $drop-max-width;
@@ -7,7 +9,9 @@
     box-shadow: $drop-shadow;
     position: absolute;
     display: none;
-    background-color: $drop-background-color;
+    @include theme-switch-val($drop-background-color,$drop-background-color-dark) using ($val){
+        background-color: $val;
+    }
 
     &.is-active { display: block; }
 
@@ -20,7 +24,9 @@
     }
 
     .droppanel--header {
-        color: $drop-header-color;
+        @include theme-switch-val($drop-header-color,$drop-background-color-dark) using ($val){
+            color: $val;
+        }
         margin: $drop-header-margin*$margin-unit 0;
         font-variant: small-caps;
 
@@ -36,17 +42,27 @@
 
         a {
             padding: $drop-menu-item-padding-y*$padding-unit $drop-menu-item-padding-x*$padding-unit;
-            color: $drop-menu-item-color;
+            @include theme-switch-val($drop-menu-item-color,$drop-menu-item-color-dark) using ($val){
+                color: $val;
+            }
 
             &:hover, &:focus, &:active {
-                background-color: $drop-menu-item-hover-background-color;
-                color: $drop-menu-item-color;
+                @include theme-switch-val($drop-menu-item-hover-background-color,$drop-menu-item-hover-background-color-dark) using ($val){
+                    background-color: $val;
+                }
+                @include theme-switch-val($drop-menu-item-color,$drop-menu-item-color-dark) using ($val){
+                    color: $val;
+                }
                 text-decoration: none;
             }
 
             &.is-active {
-                background-color: $drop-menu-item-active-background-color;
-                color: $drop-menu-item-active-color;
+                @include theme-switch-val($drop-menu-item-active-background-color,$drop-menu-item-active-background-color-dark) using ($val){
+                    background-color: $val;
+                }
+                @include theme-switch-val($drop-menu-item-active-color,$drop-menu-item-active-color-dark) using ($val){
+                    color: $val;
+                }
             }
         }
     }

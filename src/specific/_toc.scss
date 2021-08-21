@@ -8,19 +8,29 @@
         font: inherit;
         cursor: pointer;
         font-weight: $toc-header-font-weight;
-        background-color: $toc-header-active-background-color;
-        color: $toc-header-active-color;
+        @include theme-switch-val($toc-header-active-background-color,$toc-entry-hover-dark-background-color) using ($val){
+            background-color: $val;
+        }
+        @include theme-switch-val($toc-header-active-color,inherit) using ($val){
+            color: $val;
+        }
     }
 
     .toc--header {
         margin-top: $toc-header-top-margin * $margin-unit;
         align-self: flex-start;
         font-weight: $toc-header-font-weight;
-        border: $toc-outer-border-width solid $toc-border-color;
+        @include theme-switch-val($toc-border-color,$toc-header-dark-color) using ($val){
+            border: $toc-outer-border-width solid $val;
+        }
         border-bottom-width: 0;
-        background-color: $toc-header-active-background-color;
+        @include theme-switch-val($toc-header-active-background-color,$toc-header-dark-color) using ($val){
+            background-color: $val;
+        }
         padding: $toc-header-padding-y*$padding-unit $toc-header-padding-x*$padding-unit;
-        color: $toc-header-active-color;
+        @include theme-switch-val($toc-header-active-color, inherit) using ($val){
+            color: $val;
+        }
     }
 
     .toc--entry {
@@ -70,13 +80,17 @@
         text-decoration: none;
 
         &:hover {
-            background-color: $toc-entry-hover-background-color;
+            @include theme-switch-val($toc-entry-hover-background-color,$toc-entry-hover-dark-background-color) using ($val){
+                background-color: $val;
+            }
         }
     }
 
     &:not(.is-active) {
         button.toc--header {
-            background-color: white;
+            @include theme-switch-val(white,$toc-header-button-dark-background) using ($val){
+                background-color: $val;
+            }
             border-bottom-width: $toc-outer-border-width;
         }
         button.toc--header ~ .toc--entry {

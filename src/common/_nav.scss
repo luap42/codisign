@@ -7,24 +7,36 @@
   .tabs--item {
     display: block;
     font-weight: $tabs-font-weight;
-    color: $tabs-color;
+    @include theme-switch-val($tabs-color,$tabs-color-dark) using ($val){
+      color: $val;
+    }
     text-decoration: none !important;
     padding: $tabs-item-padding-y*$padding-unit $tabs-item-padding-x*$padding-unit;
     margin: $tabs-item-margin*$padding-unit;
 
     &:hover {
-      background-color: $tabs-hover-background-color;
-      color: $tabs-hover-color;
+      @include theme-switch-val($tabs-hover-background-color,$tabs-hover-background-color-dark) using ($val){
+        background-color: $val;
+      }
+      @include theme-switch-val($tabs-hover-color, $tabs-hover-color-dark) using ($val){
+        color: $val;
+      }
     }
 
     &.is-active {
-      background-color: $tabs-active-background-color;
-      color: $tabs-active-color;
+      @include theme-switch-val($tabs-active-background-color,$tabs-classic-border-color-dark) using ($val){
+        background-color: $val;
+      }
+      @include theme-switch-val($tabs-active-color,white) using ($val){
+        color: $val;
+      }
     }
   }
 
   &.is-classic-tabs {
-    border-bottom: $tabs-classic-border-width solid $tabs-classic-border-color;
+    @include theme-switch-val($tabs-classic-border-color,$tabs-classic-border-color-dark) using ($val){
+      border-bottom: $tabs-classic-border-width solid $val;
+    }
 
     .tabs--item {
       margin-bottom: 0;
@@ -42,7 +54,9 @@
   .menu--heading {
     display: block;
     font-weight: $menu-heading-font-weight;
-    color: $menu-heading-color;
+    @include theme-switch-val($menu-heading-color,$menu-header-color-dark) using ($val){
+      color: $val;
+    }
     text-decoration: none !important;
     padding: $menu-heading-padding-y*$padding-unit $menu-heading-padding-x*$padding-unit;
     margin: $menu-heading-margin-y*$padding-unit $menu-heading-margin-x*$padding-unit;
@@ -52,20 +66,30 @@
   }
   a.menu--heading {
     &:hover {
-      background-color: $menu-hover-background-color;
-      color: $menu-hover-color;
+      @include theme-switch-val($menu-hover-background-color,$menu-hover-background-color-dark) using ($val){
+        background-color: $val;
+      }
+      @include theme-switch-val($menu-hover-color,$menu-hover-background-color-dark) using ($val){
+        color: $menu-hover-color;
+      }
     }
 
     &.is-active {
-      background-color: $menu-active-background-color;
-      color: $menu-active-color;
+      @include theme-switch-val($menu-active-background-color,$menu-active-background-color-dark) using ($val){
+        background-color: $val;
+      }
+      @include theme-switch-val($menu-active-color, white) using ($val){
+        color: $val;
+      }
     }
   }
 
   .menu--item {
     display: block;
     font-weight: $menu-font-weight;
-    color: $menu-color;
+    @include theme-switch-val($menu-color,$menu-color-dark) using ($val){
+      color: $val;
+    }
     text-decoration: none !important;
     padding: $menu-item-padding-y*$padding-unit $menu-item-padding-x*$padding-unit;
     margin: $menu-item-margin-y*$padding-unit $menu-item-margin-x*$padding-unit;
@@ -73,13 +97,21 @@
     font-size: $menu-font-size;
 
     &:hover {
-      background-color: $menu-hover-background-color;
-      color: $menu-hover-color;
+      @include theme-switch-val($menu-hover-background-color,$menu-hover-background-color-dark) using ($val){
+        background-color: $val;
+      }
+      @include theme-switch-val($menu-hover-color,$menu-hover-color-dark) using ($val){
+        color: $val;
+      }
     }
 
     &.is-active {
-      background-color: $menu-active-background-color;
-      color: $menu-active-color;
+      @include theme-switch-val($menu-active-background-color,$menu-active-background-color-dark) using ($val){
+        background-color: $val;
+      }
+      @include theme-switch-val($menu-active-color, white) using ($val){
+        color: $val;
+      }
     }
   }
 }

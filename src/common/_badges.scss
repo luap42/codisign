@@ -4,14 +4,20 @@
   font-size: $badge-tag-font-size;
   padding: $badge-tag-padding-y*$padding-unit $badge-tag-padding-x*$padding-unit;
   font-weight: $badge-tag-font-weight;
-  color: $badge-tag-color;
-  background-color: $badge-tag-background-color;
+  @include theme-switch-val($badge-tag-color,$badge-tag-color-dark) using ($val){
+    color: $val;
+  }
+  @include theme-switch-val($badge-tag-background-color,$badge-tag-background-color-dark) using ($val){
+    background-color: $val;
+  }
   border-radius: $badge-tag-border-radius;
 
   &.is-master-tag, /* DEPRECATED */
   &.is-filled {
     color: #ffffff;
-    background-color: $badge-tag-master-background-color;
+    @include theme-switch-val($badge-tag-master-background-color,$badge-tag-master-background-color-dark) using ($val){
+      background-color: $val;
+    }
   }
 
   @each $name, $value in $badge-tag-alternative-colors {
@@ -36,7 +42,9 @@
 a.badge.is-tag:hover,
 a.badge-tag:hover {
   text-decoration: none !important;
-  background-color: darken($badge-tag-background-color, 5%);
+  @include theme-switch-val(darken($badge-tag-background-color, 5%),$badge-a-tag-background-color-dark) using ($val){
+    background-color: $val;
+  }
 
   &.is-master-tag, /* DEPRECATED */
   &.is-filled {
@@ -63,9 +71,15 @@ a.badge-tag:hover {
   padding: $badge-award-padding-y*$padding-unit $badge-award-padding-x*$padding-unit;
   font-weight: $badge-award-font-weight;
   font-size: $badge-award-font-size;
-  color: $badge-award-color;
-  background-color: $badge-award-background-color;
-  border: $badge-award-border-width solid $badge-award-border-color;
+  @include theme-switch-val($badge-award-color,$badge-award-color-dark) using ($val){
+    color: $val;
+  }
+  @include theme-switch-val($badge-award-background-color,$badge-award-background-color-dark) using ($val){
+    background-color: $val;
+  }
+  @include theme-switch-val($badge-award-border-color,$badge-award-border-color-dark) using ($val){
+    border: $badge-award-border-width solid $val; 
+  }
   border-radius: $badge-award-border-radius;
 
   .badge--icon {
@@ -96,13 +110,21 @@ a.badge-tag:hover {
   font-size: $badge-role-font-size;
   padding: $badge-role-padding-y*$padding-unit $badge-role-padding-x*$padding-unit;
   border-radius: $badge-role-border-radius;
-  background-color: $badge-role-background-color;
-  color: $badge-role-color;
+  @include theme-switch-val($badge-role-background-color,$badge-role-background-color-dark) using ($val){
+    background-color: $val;
+  }
+  @include theme-switch-val($badge-role-color, $badge-role-color-dark) using ($val){
+    color: $val;
+  }
   font-weight: $badge-role-font-weight;
 
   &.is-muted {
-    background-color: $badge-role-muted-background-color;
-    color: $badge-role-muted-color;
+    @include theme-switch-val($badge-role-muted-background-color,$badge-role-muted-background-color-dark) using ($val){
+      background-color: $val; 
+    }
+    @include theme-switch-val($badge-role-muted-color,$badge-role-muted-color-dark) using ($val){
+      color: $val;
+    }
   }
 }
 
@@ -114,16 +136,23 @@ a.badge-tag:hover {
   text-align: center;
   padding: $badge-tl-padding-y*$padding-unit $badge-tl-padding-x*$padding-unit;
   border-radius: $badge-tl-border-radius;
-  background-color: $badge-tl-background-color;
-  color: $badge-tl-color;
+  @include theme-switch-val($badge-tl-background-color,$badge-tl-background-color-dark) using ($val){
+    background-color: $val;
+  }
+  @include theme-switch-val($badge-tl-color,$badge-tl-color-dark) using ($val){
+    color: $val;
+  }
   font-weight: $badge-tl-font-weight;
 
   &.is-muted {
-    background-color: $badge-tl-muted-background-color;
-    color: $badge-tl-muted-color;
+    @include theme-switch-val($badge-tl-muted-background-color,$badge-tl-muted-background-color-dark) using ($val){
+      background-color: $val;
+    }
+    @include theme-switch-val($badge-tl-muted-color,$badge-tl-muted-color-dark) using ($val){
+      color: $val;
+    }
   }
 }
-
 
 .badge.is-status {
   background-color: rgba(0,0,0,0.2);

@@ -5,8 +5,12 @@
     bottom: 0;
     max-height: $bar-max-height;
     overflow: auto;
-    background-color: $bar-background-color;
-    border-top: $bar-border-width solid $bar-border-color;
+    @include theme-switch-val($bar-background-color,$bar-background-color-dark) using ($val){
+        background-color: $val;
+    }
+    @include theme-switch-val($bar-border-color,$bar-border-color-dark) using ($val){
+        border-top: $bar-border-width solid $val;
+    }
 
     .bar--container {
         padding: $bar-padding * $padding-unit;

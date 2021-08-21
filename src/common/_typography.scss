@@ -111,10 +111,15 @@ code {
 
 pre {
   display: block;
-  border: $code-border-width solid $code-border-color;
+  @include theme-switch-val($code-border-color,$code-border-color-dark) using ($val){
+    border: $code-border-width solid $val;
+  }
   border-radius: $code-border-radius;
   padding: $code-block-padding * $padding-unit;
-
+  @media (prefers-color-scheme: dark){
+    background-color: $code-dark-background-color;
+    color: white;
+  }
   font-family: $font-stack-code;
   font-size: $code-font-size;
   max-height: $code-block-max-height;
@@ -130,11 +135,16 @@ pre {
   }
 }
 
+
 blockquote {
   margin: $quote-margin-y*$margin-unit $quote-margin-x*$margin-unit;
   padding: $quote-padding-y*$padding-unit $quote-padding-x*$padding-unit;
-  background-color: $quote-background-color;
-  border: $quote-border-width solid $quote-border-color;
+  @include theme-switch-val($quote-background-color,$quote-background-color-dark) using ($val){
+    background-color: $val;
+  }
+  @include theme-switch-val($quote-border-color, $quote-border-color-dark) using ($val){
+    border: $quote-border-width solid $val;
+  }
 
   border-radius: $quote-border-radius;
   border-bottom-left-radius: 0;
@@ -155,14 +165,17 @@ ins, del {
   border-radius: $delta-border-radius;
 }
 ins {
-  background-color: $delta-ins-background-color;
+  @include theme-switch-val($delta-ins-background-color,$delta-ins-background-color-dark) using ($val){
+    background-color: $val;
+  }
   text-decoration: underline;
 }
 del {
-  background-color: $delta-del-background-color;
+  @include theme-switch-val($delta-del-background-color,$delta-del-background-color-dark) using ($val){
+    background-color: $val;
+  }
   text-decoration: line-through;
 }
-
 
 table.table {
   border-collapse: collapse;
@@ -174,21 +187,27 @@ table.table {
   }
 
   th {
-    border-bottom: $table-th-border-width solid $table-border-color;
+    @include theme-switch-val($table-border-color,$table-border-color-dark) using ($val){
+      border-bottom: $table-th-border-width solid $val;
+    }
     padding: $table-padding-y*$padding-unit $table-padding-x*$padding-unit;
     font-weight: $table-th-font-weight;
     text-align: left;
   }
 
   td {
-    border-bottom: $table-td-border-width solid $table-border-color;
+    @include theme-switch-val($table-border-color,$table-border-color-dark) using ($val){
+      border-bottom: $table-td-border-width solid $val;
+    }
     padding: $table-padding-y*$padding-unit $table-padding-x*$padding-unit;
     text-align: left;
   }
 
   th, td {
     &:not(:last-child) {
-      border-right: $table-td-border-width solid $table-border-color;
+      @include theme-switch-val($table-border-color,$table-border-color-dark) using ($val){
+        border-bottom: $table-td-border-width solid $val;
+      }
     }
   }
 
@@ -199,11 +218,15 @@ table.table {
   }
 
   &.is-striped tr:nth-of-type(2n+1) td {
-    background-color: $table-stripe-background-color;
+    @include theme-switch-val($table-stripe-background-color,$quote-background-color-dark) using ($val){
+      background-color: $val
+    }
   }
 
   &.is-with-hover tr:hover td {
-    background-color: $table-hover-background-color;
+    @include theme-switch-val($table-hover-background-color,$quote-background-color-dark) using ($val){
+      background-color: $val
+    }
   }
 }
 
